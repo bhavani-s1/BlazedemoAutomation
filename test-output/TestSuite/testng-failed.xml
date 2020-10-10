@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite thread-count="2" guice-stage="DEVELOPMENT" name="Failed suite [TestSuite]" parallel="tests">
+  <test thread-count="2" name="firefoxtest(failed)" parallel="tests">
+    <parameter name="browser" value="firefox"/>
+    <classes>
+      <class name="com.atmecs.blazedemo_automation.CrossBrowser">
+        <methods>
+          <include name="Titletest" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- com.atmecs.blazedemo_automation.CrossBrowser -->
+    </classes>
+  </test> <!-- firefoxtest(failed) -->
+  <test thread-count="2" name="Chrometest(failed)" parallel="tests">
+    <parameter name="browser" value="Chrome"/>
+    <classes>
+      <class name="com.atmecs.blazedemo_automation.CrossBrowser">
+        <methods>
+          <include name="Titletest" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- com.atmecs.blazedemo_automation.CrossBrowser -->
+    </classes>
+  </test> <!-- Chrometest(failed) -->
+</suite> <!-- Failed suite [TestSuite] -->

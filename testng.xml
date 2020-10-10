@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite" thread-count="2"  parallel="tests">
+  
+  <test name="ChromeTest" >
+  
+  <parameter name="browser" value="Chrome">
+  
+  
+    <classes>
+      
+     <class name="com.atmecs.blazedemo.SignUpTest"/>
+     
+     <!--  <class name="com.atmecs.blazedemo.LoginTest"/>
+      <class name="com.atmecs.blazedemo.ContactTest"/> -->
+    </classes>
+    </parameter>
+  </test>
+  
+  <test name="firefoxTest">
+  
+  <parameter name="browser" value="firefox">
+  
+  
+    <classes>
+      <class name="com.atmecs.blazedemo.ContactTest"/>
+      <class name="com.atmecs.blazedemo.SignUpTest"/>
+      <class name="com.atmecs.blazedemo.LoginTest"/>
+    </classes>
+    </parameter>
+  </test>
+  
+</suite> <!-- Suite -->

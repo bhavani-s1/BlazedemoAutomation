@@ -11,28 +11,38 @@ import com.atmecs.balzedemo.pagehelper.loginPage;
 import com.atmecs.blazedemo.basetest.BaseTest;
 import com.atmecs.blazedemo.constants.Constants;
 import com.atmecs.blazedemo.utilities.ReadingData;
+import com.atmecs.practice.Readdata1;
 
 public class LoginTest extends BaseTest {
 
 //WebDriver driver;
 	
-	@DataProvider
+	@DataProvider(name="getlogindata")
 	
-	public static Object[][] getdata() throws IOException
+	public static Object[][] getlogindata() throws IOException
 	{
+ReadingData rd= new ReadingData();
+		
+		//String path=Constants.TESTDATA;
+		Object[][]  data1= rd.getdata(Constants.TESTDATA, "Sheet2");
 		
 		
-   Object[][]  data1= ReadingData.getdata(Constants.EXCELPATH);
 
-   return data1;
+		   return data1;
+		
+ //  Object[][]  data1= ReadingData.getdata(Constants.EXCELPATH);
+
+   //return data1;
 			
 		
 	}
 	
-//@Test(dataProvider="getdata")
+@Test(dataProvider="getlogindata")
 	
 	
 	public void blazeLogin(String emailid,String password) throws FileNotFoundException, IOException {
+		
+		System.out.println("entering blazelogin method");
 		
 		loginPage log1=new loginPage(driver);
 		

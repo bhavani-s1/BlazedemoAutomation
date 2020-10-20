@@ -6,6 +6,9 @@ import java.io.IOException;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.testng.annotations.DataProvider;
+
+import com.atmecs.blazedemo.constants.Constants;
 
 public class ReadingData {
 
@@ -14,15 +17,19 @@ public class ReadingData {
 	/*public ReadingData(String filePath) {
 		this.filePath = filePath;
 	}*/
+	@DataProvider
 	
-	public static  Object[][] getdata(String filepath) throws IOException  {
+	public static Object[][] getdata(String sheetname) throws IOException  {
 		
-		 FileInputStream fis= new FileInputStream(filepath);
+		FileInputStream file = null;
+
+		//file = new FileInputStream(filepath);
+		
+		file= new FileInputStream(Constants.MULTIPLE);
 		 
-		 System.out.println("entering into getdata method");
-		 System.out.println("filepath"+filepath);
-		 
-		  XSSFWorkbook workbook = new XSSFWorkbook(fis);
+		//FileInputStream fis= new FileInputStream(filepath);
+		  
+		  XSSFWorkbook workbook = new XSSFWorkbook(file);
 		 
 		  //XSSFWorkbook workbook=new XSSFWorkbook(fis);
 		
@@ -34,9 +41,6 @@ public class ReadingData {
 		XSSFSheet sheet = workbook.getSheet(Sheetname);*/
 		
 
-			
-			
-			
 			//row count
 			
 			int rowNum=sheet.getLastRowNum()+1;

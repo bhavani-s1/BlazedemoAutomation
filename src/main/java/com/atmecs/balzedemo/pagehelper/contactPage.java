@@ -10,14 +10,15 @@ import org.openqa.selenium.WebDriver;
 
 import com.atmecs.blazedemo.constants.Constants;
 import com.atmecs.blazedemo.helpers.Helpers;
+import com.atmecs.blazedemo.utilities.Loggerclass;
 import com.atmecs.blazedemo.utilities.PropertyReader;
 
 public class contactPage {
 
-	public WebDriver driver;
+	WebDriver driver;
 	
 Helpers h1;
-	
+Loggerclass log1;
 	Properties prop1;
 	
 	public contactPage(WebDriver driver) 
@@ -38,15 +39,19 @@ Helpers h1;
 		
 		prop1=PropertyReader.readProperties(Constants.LOCATORS);
 		
-		h1.clickOperation(prop1.getProperty("conactlink"));
+		h1.clickOperation(prop1.getProperty("contactclick"));
+		driver.manage().timeouts().implicitlyWait(150, TimeUnit.SECONDS);
 		
-        driver.findElement(By.xpath(prop1.getProperty("contactemail"))).sendKeys(contactemail);
+        driver.findElement(By.xpath(prop1.getProperty("emailtxt"))).sendKeys(contactemail);
 		
-		driver.findElement(By.xpath(prop1.getProperty("contactname"))).sendKeys(name);
+        driver.manage().timeouts().implicitlyWait(150, TimeUnit.SECONDS);
+        
+		driver.findElement(By.xpath(prop1.getProperty("nametxt"))).sendKeys(name);
 		
-		driver.findElement(By.xpath(prop1.getProperty("message"))).sendKeys(message);
+driver.manage().timeouts().implicitlyWait(150, TimeUnit.SECONDS);
+		driver.findElement(By.xpath(prop1.getProperty("messagetxt"))).sendKeys(message);
 		
-		h1.clickOperation(prop1.getProperty("messageclick"));
+		h1.clickOperation(prop1.getProperty("messagebtn"));
 		
 	}
 	

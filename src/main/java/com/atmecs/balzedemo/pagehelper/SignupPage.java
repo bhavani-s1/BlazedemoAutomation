@@ -8,7 +8,6 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import com.atmecs.blazedemo.basetest.BaseTest;
 import com.atmecs.blazedemo.constants.Constants;
 import com.atmecs.blazedemo.helpers.Helpers;
 import com.atmecs.blazedemo.utilities.Loggerclass;
@@ -68,6 +67,7 @@ public void DemoSignup(String mailid, String password) throws FileNotFoundExcept
 	log1.info("clicking on signup");
 	
 }
+}
 	
 
-}
+

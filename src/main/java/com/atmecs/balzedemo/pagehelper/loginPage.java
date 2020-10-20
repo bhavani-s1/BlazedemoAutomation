@@ -32,6 +32,8 @@ public WebDriver driver;
 	public void DemoLogin(String emailid, String password) throws FileNotFoundException, IOException
 	{
 		
+		System.out.println("entering into logindemo");
+		
 		h1=new Helpers(driver);
 		
 		prop1=PropertyReader.readProperties(Constants.LOCATORS);
@@ -46,28 +48,28 @@ public WebDriver driver;
 		
 		//h1.clickOperation(prop1.getProperty("loginlink"));
 		
-		driver.findElement(By.linkText("Log in")).click();
+		//driver.findElement(By.linkText("Log in")).click();
+		
+		driver.findElement(By.xpath("//a[contains(text(),'Log in')]")).click();
 		
 		log1.info("clicking on login link");
 		
-		//driver.findElement(By.xpath(prop1.getProperty("loginusername"))).sendKeys(emailid);
+		driver.findElement(By.xpath(prop1.getProperty("loginusernametxt"))).sendKeys(emailid);
 		
 		
 		log1.info("giving usermail");
 		
 		driver.manage().timeouts().implicitlyWait(150, TimeUnit.SECONDS);
-		driver.findElement(By.xpath(prop1.getProperty("signpwd"))).sendKeys(password);
+		
+		driver.findElement(By.xpath(prop1.getProperty("loginpwdtxt"))).sendKeys(password);
 		
 		log1.info("giving password");
 		
 		driver.manage().timeouts().implicitlyWait(150, TimeUnit.SECONDS);
 		
-		h1.clickOperation(prop1.getProperty("loginclick"));
+		h1.clickOperation(prop1.getProperty("loginbtn"));
 		
 		log1.info("clicking on submit");
-		
-		
-		
 		
 		
 		
